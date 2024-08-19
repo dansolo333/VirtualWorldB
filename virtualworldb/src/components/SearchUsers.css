@@ -1,0 +1,60 @@
+.search-users {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  background-color: rgba(85, 41, 4, 0.7); /* Light translucent background */
+  border-radius: 10px;
+  border: 1px solid #6e4604; /* Border color to match theme */
+}
+
+.search-users input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #6e4604; /* Border color to match theme */
+  border-radius: 5px;
+  background-color: #f8f4ed; /* Light background for input */
+  width: calc(100% - 120px); /* Adjust width to fit with the button */
+}
+
+.search-users button {
+  padding: 10px;
+  background-color: #6e4604; /* Button background color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px; /* Width adjusted to fit with the input field */
+}
+
+.search-users button:hover {
+  background-color: #552904; /* Darker background on hover */
+}
+
+.search-users ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0 0; /* Adjust margin for spacing */
+}
+
+.search-users li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #6e4604; /* Border color to match theme */
+  border-radius: 5px;
+  background-color: #f8f4ed; /* Light background for list items */
+  font-weight: bold;
+}
+
+.search-users .profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid #6e4604; /* Border color to match theme */
+}
+
+.search-users h2{
+  color: #fff;
+}

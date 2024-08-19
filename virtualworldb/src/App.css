@@ -1,0 +1,173 @@
+/* General body styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* background-color: #f0f0f0; */
+  /* background-color: #6e3204; */
+  background-color: #1a1919;
+  width: 100%;
+  height: auto;
+  /* background-image: url('./components/media/bkg4.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
+  /* -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px); */
+  /* min-height: 100%; */
+  overflow-x: hidden;
+  /* overflow-y: hidden; */
+  /* color: white; */
+}
+
+/* Navbar styles */
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 98%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background: linear-gradient(145deg, #754b1e, #552904, #754b1e);
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  /* margin-top: -3.5%; */
+  /* margin-left: -1%; */
+}
+
+#left-nav p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#right-nav {
+  cursor: pointer;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.hamburger:hover span {
+  background-color: #623e03;
+}
+
+/* Menu bar styles */
+#menu-bar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(145deg, #754b1e, #552904);
+  color: #fff;
+  transition: right 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 10px 0 0 10px;
+  margin-top: 62px;
+}
+
+#menu-bar.open {
+  right: 0;
+}
+
+#menu-bar .close-btn {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 20px;
+  width: 100%;
+  text-align: right;
+}
+
+#menu-bar p {
+  padding: 20px;
+  border-bottom: 1px solid #784d1b;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#menu-bar p:hover {
+  background-color: #784d1b;
+}
+
+/* Sidebar styles */
+#sidebar {
+  position: fixed;
+  top: 1px;
+  left: 0;
+  width: 60px;
+  height: calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(145deg, #754b1e, #552904);
+  border-right: 1px solid #6e4604;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0 10px 10px 0;
+  z-index: 1000;
+  margin-top: 62px;
+}
+
+#sidebar img {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+}
+
+#main-content {
+  margin-top: 60px;
+  padding: 20px;
+  margin-left: 60px;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.truncated-text {
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+  overflow: hidden;    /* Ensures the overflowed content is hidden */
+  text-overflow: ellipsis; /* Adds the ellipsis ('...') */
+  max-width: 200px;    /* Adjust this width based on your layout */
+  display: block;
+  margin: auto;
+}

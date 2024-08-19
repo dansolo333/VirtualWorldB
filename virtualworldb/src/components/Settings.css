@@ -1,0 +1,58 @@
+.settings-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(110, 70, 4, 0.5); /* Light translucent background */
+    border-radius: 10px;
+  }
+  
+  .profile-display {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-pic {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border: 2px solid #6e4604; /* Border to match theme */
+  }
+  
+  .settings-container input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: calc(100% - 22px); /* Adjusting for padding */
+    border: 1px solid #6e4604; /* Border color to match theme */
+    border-radius: 5px;
+    background-color: #f8f4ed; /* Light background for inputs */
+    color: #000; /* Text color */
+  }
+  
+  .settings-container button {
+    padding: 10px;
+    background-color: #552904; /* Button background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .settings-container button:hover {
+    background-color: #6e4604; /* Darker background on hover */
+  }
+  
+  .settings-container .error {
+    color: #d9534f; /* Error color */
+  }
+  
+  .settings-container .success {
+    color: #5bc0de; /* Success color */
+  }
+  
+  .settings-container p {
+    color: white;
+    font-weight: bold;
+  }
