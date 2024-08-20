@@ -1,6 +1,8 @@
 {
   "name": "virtualworldb",
   "version": "0.1.0",
+  "description": "Social application for conversing and sui transactions with users",
+  "homepage": "https://dansolo333.github.io/VirtualWorldB",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.24.5",
