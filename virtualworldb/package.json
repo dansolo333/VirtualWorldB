@@ -2,7 +2,7 @@
   "name": "virtualworldb",
   "version": "0.1.0",
   "description": "Social application for conversing and sui transactions with users",
-  "homepage": "https://dansolo333.github.io/VirtualWorldB",
+  "homepage": "https://dansolo333.github.io/VirtualWorldB/",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.24.5",
@@ -29,14 +29,18 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "7.21.11",
     "@babel/plugin-transform-private-property-in-object": "^7.24.5",
+    "gh-pages": "^6.1.1",
     "rollup-plugin-styles": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+
   "eslintConfig": {
     "extends": [
       "react-app",
