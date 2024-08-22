@@ -13,7 +13,7 @@ function Chat({ username, recipient }) {
       localStorage.setItem("username", enteredUsername);
     }
 
-    ws.current = new WebSocket("wss://virtualworldb.onrender.com/ws");
+    ws.current = new WebSocket("ws://virtualworldb.onrender.com/ws");
 
     ws.current.onmessage = (event) => {
       const message = JSON.parse(event.data);
