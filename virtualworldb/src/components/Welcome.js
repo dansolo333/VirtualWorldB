@@ -6,7 +6,10 @@ function Welcome() {
   return (
     <div className="welcome-container">
       <h1>Welcome to VIRTUAL WORLD B!</h1>
-      <p>Please <Link className="link" to="/login">Login</Link> to continue or <Link className="link" to="/login">Login</Link>.</p>
+      <p>Please log in to continue.</p>
+      <Link className="link" to="/login">Login</Link>
+      <p> OR </p>
+      <Link className="link" to="/signup">SignUp</Link>
     </div>
   );
 }
