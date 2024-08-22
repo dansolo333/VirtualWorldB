@@ -158,11 +158,12 @@ async def websocket_endpoint(websocket: WebSocket):
     clients.append(websocket)
 
     # Handle initial message fetching if necessary
-    query = """SELECT "user", "content", "timestamp" FROM "Messages" ORDER BY id"""
+    query = """SELECT "user", "recipient", "content", "timestamp" FROM "Messages" ORDER BY id"""
     rows = await database.fetch_all(query=query)
     for row in rows:
         message = {
             "user": row["user"],
+            "recipient": row["recipient"],
             "content": row["content"],
             "timestamp": row["timestamp"].isoformat()
         }
@@ -172,26 +173,29 @@ async def websocket_endpoint(websocket: WebSocket):
         while True:
             data = await websocket.receive_json()
             user = data['username']
-            content = data['newMessage']
+            recipient = data['recipient']
+            content = data['content']
             timestamp = datetime.utcnow()
 
             message = {
                 "user": user,
+                "recipient": recipient,
                 "content": content,
                 "timestamp": timestamp.isoformat()
             }
 
             query = """
-            INSERT INTO "Messages" ("user", "content", "timestamp")
-            VALUES (:user, :content, :timestamp)
+            INSERT INTO "Messages" ("user", "recipient", "content", "timestamp")
+            VALUES (:user, :recipient, :content, :timestamp)
             """
-            values = {"user": user, "content": content, "timestamp": timestamp}
+            values = {"user": user, "recipient": recipient, "content": content, "timestamp": timestamp}
             await database.execute(query=query, values=values)
 
             for client in clients:
                 await client.send_json(message)
     except WebSocketDisconnect:
         clients.remove(websocket)
+
 
 
 
