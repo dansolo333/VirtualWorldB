@@ -29,11 +29,19 @@ app.add_middleware(
 )
 
 # app.mount("/static", StaticFiles(directory="static"), name="static")
-app.mount("/static", StaticFiles(directory="/home/osebi/VirtualWorldB/virtualworldb/src/components/media"), name="static")
+# app.mount("/static", StaticFiles(directory="/home/osebi/VirtualWorldB/virtualworldb/src/components/media"), name="static")
+# Get the directory of the current file
+current_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Use a relative path to the media directory
+static_directory = os.path.join(current_directory, "virtualworldb/src/components/media")
+
+app.mount("/static", StaticFiles(directory=static_directory), name="static")
 
 # Database configuration
-DATABASE_URL = "postgresql://postgres:password@localhost/VirtualWorldB"
+# DATABASE_URL = "postgresql://postgres:password@localhost/VirtualWorldB"
 # DATABASE_URL = "postgresql://postgres:password@172.18.16.1/VirtualWorldB"
+DATABASE_URL = postgresql://daniel:SfhqW1biAYfHP6WijBwAm8KNHqDWXwdk@dpg-cr3nth3qf0us73ebohk0-a.oregon-postgres.render.com/virtualworldb
 
 database = Database(DATABASE_URL)
 engine = create_engine(DATABASE_URL)
