@@ -20,6 +20,20 @@ function Chat({ username, recipient }) {
       setMessages((prevMessages) => [...prevMessages, message]);
     };
 
+    ws.current.onopen = () => {
+        console.log("WebSocket connection established");
+    };
+    
+    ws.current.onclose = () => {
+        console.log("WebSocket connection closed");
+    };
+
+    ws.current.onerror = (error) => {
+        console.error("WebSocket error:", error);
+    };
+  
+  
+
     return () => {
       if (ws.current) {
         ws.current.close();
@@ -29,12 +43,15 @@ function Chat({ username, recipient }) {
 
   const sendMessage = () => {
     if (newMessage && ws.current.readyState === WebSocket.OPEN) {
-      const messageData = { username, recipient, content: newMessage };
-      console.log("Sending Data to Backend:", messageData);
-      ws.current.send(JSON.stringify(messageData));
-      setNewMessage("");
+        const messageData = { username, newMessage };
+        console.log("Sending Data to Backend:", messageData);
+        ws.current.send(JSON.stringify(messageData));
+        setNewMessage("");
+    } else {
+        console.error("WebSocket is not open or no message to send.");
     }
   };
+
 
   return (
     <div className="chat-container">
