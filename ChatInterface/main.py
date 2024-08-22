@@ -172,9 +172,9 @@ async def websocket_endpoint(websocket: WebSocket):
     try:
         while True:
             data = await websocket.receive_json()
-            print(f"Received message: {data}")  # Add this line to log received messages
+            print(f"Received message: {data}")
             user = data['username']
-            recipient = data['recipient']
+            recipient = data.get('recipient', 'default')
             content = data['content']
             timestamp = datetime.utcnow()
 
@@ -195,7 +195,7 @@ async def websocket_endpoint(websocket: WebSocket):
             for client in clients:
                 await client.send_json(message)
     except WebSocketDisconnect:
-        print("WebSocket disconnected")  # Log disconnection
+        print("WebSocket disconnected")
         clients.remove(websocket)
 
 
