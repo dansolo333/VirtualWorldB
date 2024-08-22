@@ -103,7 +103,7 @@ function SearchUsers() {
               />
               <p>{user.username}</p>
               <p className='truncated-text'>{user.walletAddress}</p>
-              <button onClick={() => window.location.href = `/chat?recipient=${user.username}`}>Chat</button>
+              <button onClick={() => window.location.href = `/chat?username=${username}&recipient=${user.username}`}>Chat</button>
               <button onClick={() => openSuietExtensionToSendMoney(user.walletAddress)}>Send Money</button>
             </li>
           );
