@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Chat.css";
 
-function Chat({ username: propUsername, recipient }) {
+function Chat({ username, recipient }) {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const ws = useRef(null);
 
   // Retrieve username from localStorage if not passed as a prop
-  const username = propUsername || localStorage.getItem('username');
+  // const username = propUsername || localStorage.getItem('username');
 
   useEffect(() => {
     if (!username) {
