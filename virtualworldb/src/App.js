@@ -34,7 +34,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/VirtualWorldB">
       <div className="App">
         <div id="navbar">
           <div id="left-nav">
