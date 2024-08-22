@@ -41,7 +41,7 @@ app.mount("/static", StaticFiles(directory=static_directory), name="static")
 # Database configuration
 # DATABASE_URL = "postgresql://postgres:password@localhost/VirtualWorldB"
 # DATABASE_URL = "postgresql://postgres:password@172.18.16.1/VirtualWorldB"
-DATABASE_URL = postgresql://daniel:SfhqW1biAYfHP6WijBwAm8KNHqDWXwdk@dpg-cr3nth3qf0us73ebohk0-a.oregon-postgres.render.com/virtualworldb
+DATABASE_URL = DATABASE_URL = "postgresql://daniel:SfhqW1biAYfHP6WijBwAm8KNHqDWXwdk@dpg-cr3nth3qf0us73ebohk0-a.oregon-postgres.render.com/virtualworldb"
 
 database = Database(DATABASE_URL)
 engine = create_engine(DATABASE_URL)
