@@ -34,7 +34,7 @@ app.add_middleware(
 current_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Use a relative path to the media directory
-static_directory = os.path.join(current_directory, "virtualworldb/src/components/media")
+static_directory = os.path.join(current_directory, "../virtualworldb/src/components/media")
 
 app.mount("/static", StaticFiles(directory=static_directory), name="static")
 
