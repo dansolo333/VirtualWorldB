@@ -15,7 +15,7 @@ function Settings({ currentUser }) {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`https://virtualworldb.onrender.com/user/${currentUser}`);
+        const response = await fetch(`https://virtualworldb-server.onrender.com/user/${currentUser}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -36,7 +36,7 @@ function Settings({ currentUser }) {
 
   const handleUpdate = async () => {
     try {
-      const response = await fetch(`https://virtualworldb.onrender.com/user/${currentUser}/update`, {
+      const response = await fetch(`https://virtualworldb-server.onrender.com/user/${currentUser}/update`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: newUsername, profilePhoto: newProfilePhoto, walletAddress: newWalletAddress })
@@ -62,7 +62,7 @@ function Settings({ currentUser }) {
   };
 
   // Generate the full URL for the profile photo
-  const profilePhotoUrl = profilePhoto ? `https://virtualworldb.onrender.com/static/${profilePhoto.split("media/")[1]}` : profPic;
+  const profilePhotoUrl = profilePhoto ? `https://virtualworldb-server.onrender.com/static/${profilePhoto.split("media/")[1]}` : profPic;
 
   return (
     <div className="settings-container">

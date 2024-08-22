@@ -9,7 +9,7 @@ function Home({ username }) {
     useEffect(() => {
         const storedUsername = localStorage.getItem('username');
         if (storedUsername) {
-            fetch(`https://virtualworldb.onrender.com/user/${storedUsername}`)
+            fetch(`https://virtualworldb-server.onrender.com/user/${storedUsername}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -35,7 +35,7 @@ function Home({ username }) {
     }
 
     // Generate the full URL for the profile photo
-    const profilePhotoUrl = userData.profilePhoto ? `https://virtualworldb.onrender.com/static/${userData.profilePhoto.split("media/")[1]}` : Pic;
+    const profilePhotoUrl = userData.profilePhoto ? `https://virtualworldb-server.onrender.com/static/${userData.profilePhoto.split("media/")[1]}` : Pic;
 
     return (
         <div id="main-home">
