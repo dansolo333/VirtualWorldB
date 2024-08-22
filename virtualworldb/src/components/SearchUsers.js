@@ -57,6 +57,16 @@ function SearchUsers() {
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState(null);
 
+  // Retrieve username from localStorage or prompt if not set
+  const getUsername = () => {
+    let username = localStorage.getItem('username');
+    if (!username) {
+      username = prompt("Enter your username: ");
+      localStorage.setItem('username', username);
+    }
+    return username;
+  };
+
   const handleSearch = async () => {
     try {
       const response = await fetch(`https://virtualworldb-server.onrender.com/users?search=${searchTerm}`);
@@ -69,6 +79,11 @@ function SearchUsers() {
     } catch (error) {
       setError('An error occurred.');
     }
+  };
+
+  const handleChatClick = (recipientUsername) => {
+    const username = getUsername(); // Retrieve username from localStorage
+    window.location.href = `/chat?username=${username}&recipient=${recipientUsername}`;
   };
 
   const openSuietExtensionToSendMoney = (walletAddress) => {
@@ -103,7 +118,7 @@ function SearchUsers() {
               />
               <p>{user.username}</p>
               <p className='truncated-text'>{user.walletAddress}</p>
-              <button onClick={() => window.location.href = `/chat?username=${username}&recipient=${user.username}`}>Chat</button>
+              <button onClick={() => handleChatClick(user.username)}>Chat</button>
               <button onClick={() => openSuietExtensionToSendMoney(user.walletAddress)}>Send Money</button>
             </li>
           );

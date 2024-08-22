@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Chat.css";
 
-function Chat({ username, recipient }) {
+function Chat({ username: propUsername, recipient }) {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const ws = useRef(null);
 
+  // Retrieve username from localStorage if not passed as a prop
+  const username = propUsername || localStorage.getItem('username');
+
   useEffect(() => {
     if (!username) {
       const enteredUsername = prompt("Enter your username: ");
-      username = enteredUsername;
-      localStorage.setItem("username", enteredUsername);
+      localStorage.setItem('username', enteredUsername);
     }
 
     ws.current = new WebSocket("wss://virtualworldb-server.onrender.com/ws");
@@ -31,8 +33,6 @@ function Chat({ username, recipient }) {
     ws.current.onerror = (error) => {
         console.error("WebSocket error:", error);
     };
-  
-  
 
     return () => {
       if (ws.current) {
@@ -51,8 +51,6 @@ function Chat({ username, recipient }) {
       console.error("WebSocket is not open or no message to send.");
     }
   };
-  
-
 
   return (
     <div className="chat-container">
