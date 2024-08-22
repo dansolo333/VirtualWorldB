@@ -5,7 +5,7 @@ Jinja2==2.11.3
 MarkupSafe==1.1.1
 Werkzeug==1.0.1
 uvicorn==0.15.0
-fastapi==0.0.5
+fastapi==0.112.0
 sqlalchemy==2.0.32
 databases==0.9.0
 passlib==1.7.4
