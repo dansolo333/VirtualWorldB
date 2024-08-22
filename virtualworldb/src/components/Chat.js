@@ -13,7 +13,7 @@ function Chat({ username, recipient }) {
       localStorage.setItem("username", enteredUsername);
     }
 
-    ws.current = new WebSocket("ws://virtualworldb.onrender.com/ws");
+    ws.current = new WebSocket("wss://virtualworldb.onrender.com/ws");
 
     ws.current.onmessage = (event) => {
       const message = JSON.parse(event.data);
@@ -29,7 +29,7 @@ function Chat({ username, recipient }) {
 
   const sendMessage = () => {
     if (newMessage && ws.current.readyState === WebSocket.OPEN) {
-      const messageData = { username, newMessage };
+      const messageData = { username, recipient, content: newMessage };
       console.log("Sending Data to Backend:", messageData);
       ws.current.send(JSON.stringify(messageData));
       setNewMessage("");
@@ -46,7 +46,7 @@ function Chat({ username, recipient }) {
               msg.user === username ? "chat-message-sender" : "chat-message-recipient"
             }`}
           >
-            <strong>{msg.user === username ? `${msg.user} (You)` : recipient}:</strong>
+            <strong>{msg.user === username ? `${msg.user} (You)` : msg.user}:</strong>
             <p>{msg.content}</p>
             <span className="timestamp">{new Date(msg.timestamp).toLocaleTimeString()}</span>
           </div>
