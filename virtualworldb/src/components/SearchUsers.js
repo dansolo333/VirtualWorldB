@@ -59,7 +59,7 @@ function SearchUsers() {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/users?search=${searchTerm}`);
+      const response = await fetch(`https://virtualworldb.onrender.com/users?search=${searchTerm}`);
       const data = await response.json();
       if (response.ok) {
         setSearchResults(data);
@@ -91,8 +91,8 @@ function SearchUsers() {
         {searchResults.map(user => {
           // Provide a default image URL if user.profilePhoto is null or undefined
           const profilePhotoUrl = user.profilePhoto 
-            ? `http://127.0.0.1:8000/static/${user.profilePhoto.split('media/')[1]}`
-            : 'http://127.0.0.1:8000/static/default-profile-pic.jpg'; // Use a default profile picture URL
+            ? `https://virtualworldb.onrender.com/static/${user.profilePhoto.split('media/')[1]}`
+            : 'https://virtualworldb.onrender.com/static/default-profile-pic.jpg'; // Use a default profile picture URL
 
           return (
             <li key={user.username}>
